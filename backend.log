@@ -1,0 +1,117 @@
+(node:145233) [MONGODB DRIVER] Warning: useNewUrlParser is a deprecated option: useNewUrlParser has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:145233) [MONGODB DRIVER] Warning: useUnifiedTopology is a deprecated option: useUnifiedTopology has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+MongoDB connected
+Server running on port 5000
+[BACKEND] /api/users/sync called. Body received: {
+  clerkId: 'user_2yrXEfsroJDsfepHdIQu34OVgmt',
+  email: 'itzrvm2337@gmail.com',
+  password: 'user_2yrXEfsroJDsfepHdIQu34OVgmt',
+  name: 'Ramji B',
+  imageUrl: 'https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yeXJYRWNpYVZBd2E0VnczM2E0R2ppZ2w1d2wifQ'
+}
+
+[BACKEND] User found, updating...
+[BACKEND] User updated: {
+  _id: new ObjectId('6857f091c82858f1539b39a3'),
+  clerkId: 'user_2yrXEfsroJDsfepHdIQu34OVgmt',
+  email: 'itzrvm2337@gmail.com',
+  password: 'user_2yrXEfsroJDsfepHdIQu34OVgmt',
+  name: 'Ramji B',
+  imageUrl: 'https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yeXJYRWNpYVZBd2E0VnczM2E0R2ppZ2w1d2wifQ',
+  createdAt: 2025-06-22T12:01:21.799Z,
+  __v: 0
+}
+
+[BACKEND] /api/users/sync called. Body received: {
+  clerkId: 'user_2yrXEfsroJDsfepHdIQu34OVgmt',
+  email: 'itzrvm2337@gmail.com',
+  password: 'user_2yrXEfsroJDsfepHdIQu34OVgmt',
+  name: 'Ramji B',
+  imageUrl: 'https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yeXJYRWNpYVZBd2E0VnczM2E0R2ppZ2w1d2wifQ'
+}
+
+[BACKEND] User found, updating...
+[BACKEND] User updated: {
+  _id: new ObjectId('6857f091c82858f1539b39a3'),
+  clerkId: 'user_2yrXEfsroJDsfepHdIQu34OVgmt',
+  email: 'itzrvm2337@gmail.com',
+  password: 'user_2yrXEfsroJDsfepHdIQu34OVgmt',
+  name: 'Ramji B',
+  imageUrl: 'https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yeXJYRWNpYVZBd2E0VnczM2E0R2ppZ2w1d2wifQ',
+  createdAt: 2025-06-22T12:01:21.799Z,
+  __v: 0
+}
+
+[BACKEND] /api/users/sync called. Body received: {
+  clerkId: 'user_2yrXEfsroJDsfepHdIQu34OVgmt',
+  email: 'itzrvm2337@gmail.com',
+  password: 'user_2yrXEfsroJDsfepHdIQu34OVgmt',
+  name: 'Ramji B',
+  imageUrl: 'https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yeXJYRWNpYVZBd2E0VnczM2E0R2ppZ2w1d2wifQ'
+}
+[BACKEND] User found, updating...
+[BACKEND] User updated: {
+  _id: new ObjectId('6857f091c82858f1539b39a3'),
+  clerkId: 'user_2yrXEfsroJDsfepHdIQu34OVgmt',
+  email: 'itzrvm2337@gmail.com',
+  password: 'user_2yrXEfsroJDsfepHdIQu34OVgmt',
+  name: 'Ramji B',
+  imageUrl: 'https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yeXJYRWNpYVZBd2E0VnczM2E0R2ppZ2w1d2wifQ',
+  createdAt: 2025-06-22T12:01:21.799Z,
+  __v: 0
+}
+[BACKEND] /api/users/sync called. Body received: {
+  clerkId: 'user_2yrXEfsroJDsfepHdIQu34OVgmt',
+  email: 'itzrvm2337@gmail.com',
+  password: 'user_2yrXEfsroJDsfepHdIQu34OVgmt',
+  name: 'Ramji B',
+  imageUrl: 'https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yeXJYRWNpYVZBd2E0VnczM2E0R2ppZ2w1d2wifQ'
+}
+[BACKEND] User found, updating...
+[BACKEND] User updated: {
+  _id: new ObjectId('6857f091c82858f1539b39a3'),
+  clerkId: 'user_2yrXEfsroJDsfepHdIQu34OVgmt',
+  email: 'itzrvm2337@gmail.com',
+  password: 'user_2yrXEfsroJDsfepHdIQu34OVgmt',
+  name: 'Ramji B',
+  imageUrl: 'https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yeXJYRWNpYVZBd2E0VnczM2E0R2ppZ2w1d2wifQ',
+  createdAt: 2025-06-22T12:01:21.799Z,
+  __v: 0
+}
+[BACKEND] /api/users/sync called. Body received: {
+  clerkId: 'user_2yrXEfsroJDsfepHdIQu34OVgmt',
+  email: 'itzrvm2337@gmail.com',
+  password: 'user_2yrXEfsroJDsfepHdIQu34OVgmt',
+  name: 'Ramji B',
+  imageUrl: 'https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yeXJYRWNpYVZBd2E0VnczM2E0R2ppZ2w1d2wifQ'
+}
+[BACKEND] User found, updating...
+[BACKEND] User updated: {
+  _id: new ObjectId('6857f091c82858f1539b39a3'),
+  clerkId: 'user_2yrXEfsroJDsfepHdIQu34OVgmt',
+  email: 'itzrvm2337@gmail.com',
+  password: 'user_2yrXEfsroJDsfepHdIQu34OVgmt',
+  name: 'Ramji B',
+  imageUrl: 'https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yeXJYRWNpYVZBd2E0VnczM2E0R2ppZ2w1d2wifQ',
+  createdAt: 2025-06-22T12:01:21.799Z,
+  __v: 0
+}
+[BACKEND] /api/users/sync called. Body received: {
+  clerkId: 'user_2yrXEfsroJDsfepHdIQu34OVgmt',
+  email: 'itzrvm2337@gmail.com',
+  password: 'user_2yrXEfsroJDsfepHdIQu34OVgmt',
+  name: 'Ramji B',
+  imageUrl: 'https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yeXJYRWNpYVZBd2E0VnczM2E0R2ppZ2w1d2wifQ'
+}
+[BACKEND] User found, updating...
+[BACKEND] User updated: {
+  _id: new ObjectId('6857f091c82858f1539b39a3'),
+  clerkId: 'user_2yrXEfsroJDsfepHdIQu34OVgmt',
+  email: 'itzrvm2337@gmail.com',
+  password: 'user_2yrXEfsroJDsfepHdIQu34OVgmt',
+  name: 'Ramji B',
+  imageUrl: 'https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yeXJYRWNpYVZBd2E0VnczM2E0R2ppZ2w1d2wifQ',
+  createdAt: 2025-06-22T12:01:21.799Z,
+  __v: 0
+}
