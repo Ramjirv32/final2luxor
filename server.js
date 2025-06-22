@@ -13,11 +13,16 @@ const photoGalleryRoutes = require('./routes/photoGalleryRoutes');
 const newsletterRoutes = require('./routes/newsletterRoutes');
 
 const app = express();
-app.use(cors('*'),{
-  origin: '*',
+app.use(cors({
+  origin: 'http://localhost:5173',
+  credentials: true,
+  exposedHeaders: ['Content-Range', 'X-Total-Count'],
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+  maxAge: 86400,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-});
+  allowedHeaders: ['Content-Type', 'Authorization']
+}))
 app.use(express.json());
 
 app.use('/api/users', userRoutes);
