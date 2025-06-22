@@ -14,7 +14,7 @@ const newsletterRoutes = require('./routes/newsletterRoutes');
 
 const app = express();
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'http://localhost:5173' ,'https://luxor-stay.vercel.app', 
   credentials: true,
   exposedHeaders: ['Content-Range', 'X-Total-Count'],
   preflightContinue: false,
@@ -32,6 +32,9 @@ app.use('/api/auth', authRoutes);
 app.use('/api/gallery', photoGalleryRoutes);
 app.use('/api/newsletter', newsletterRoutes);
 
+app.get('/', (req, res) => {
+  res.send('Welcome to Luxor Stay API');
+});
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/luxor';
 
