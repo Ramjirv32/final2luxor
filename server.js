@@ -13,6 +13,7 @@ const photoGalleryRoutes = require('./routes/photoGalleryRoutes');
 const newsletterRoutes = require('./routes/newsletterRoutes');
 
 const app = express();
+
 app.use(cors({
   origin: ['http://localhost:5173', 'https://luxor-stay.vercel.app'],
   credentials: true,
@@ -23,6 +24,7 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }))
+
 app.use(express.json());
 
 app.use('/api/users', userRoutes);
