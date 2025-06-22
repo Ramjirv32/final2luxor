@@ -32,9 +32,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/gallery', photoGalleryRoutes);
 app.use('/api/newsletter', newsletterRoutes);
 
-app.get('/', (req, res) => {
-  res.send('Welcome to Luxor Stay API');
-});
+
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/luxor';
 
