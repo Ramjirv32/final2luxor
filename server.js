@@ -14,7 +14,7 @@ const newsletterRoutes = require('./routes/newsletterRoutes');
 
 const app = express();
 app.use(cors({
-  origin: 'http://localhost:5173' ,'https://luxor-stay.vercel.app', 
+  origin: ['http://localhost:5173', 'https://luxor-stay.vercel.app'],
   credentials: true,
   exposedHeaders: ['Content-Range', 'X-Total-Count'],
   preflightContinue: false,
