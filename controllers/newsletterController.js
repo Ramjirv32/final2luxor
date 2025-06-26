@@ -30,19 +30,30 @@ exports.subscribe = async (req, res) => {
     }
 
     return res.json({
+      success: true,
       message: isNew
         ? 'Subscribed successfully for 1 year'
         : 'Subscription renewed for 1 year',
       subscription
     });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    console.error("[NEWSLETTER] Error in subscribe method:", err);
+    res.status(500).json({ 
+      success: false,
+      error: 'Server error while processing subscription',
+      details: process.env.NODE_ENV === 'development' ? err.message : undefined
+    });
   }
 };
 
 // Helper to send newsletter confirmation email
 async function sendNewsletterEmail(email, isNew) {
   // Use environment variables for credentials
+  if (!process.env.gmail || !process.env.pass) {
+    console.error("[NEWSLETTER] Missing email credentials in environment variables");
+    throw new Error("Email configuration missing");
+  }
+  
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -69,5 +80,11 @@ async function sendNewsletterEmail(email, isNew) {
     `
   };
 
-  await transporter.sendMail(mailOptions);
+  try {
+    await transporter.sendMail(mailOptions);
+    console.log(`[NEWSLETTER] Email sent successfully to ${email}`);
+  } catch (error) {
+    console.error(`[NEWSLETTER] Error sending email to ${email}:`, error);
+    throw error; // Re-throw for proper error handling
+  }
 }

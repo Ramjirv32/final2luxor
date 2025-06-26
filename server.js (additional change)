@@ -1,0 +1,4 @@
+const debugRoutes = require('./routes/debugRoutes');
+
+// Add this line after other route definitions:
+app.use('/api/debug', debugRoutes);
