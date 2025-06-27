@@ -96,3 +96,34 @@ exports.searchBookings = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+// Get bookings by user
+exports.getBookingsByUser = async (req, res) => {
+  try {
+    const { userId } = req.query;
+    if (!userId) {
+      return res.status(400).json({ error: 'userId required' });
+    }
+    
+    const bookings = await Booking.find({ userId }).sort({ createdAt: -1 });
+    res.json(bookings);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+// Get booking by ID
+exports.getBookingById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const booking = await Booking.findById(id);
+    
+    if (!booking) {
+      return res.status(404).json({ error: 'Booking not found' });
+    }
+    
+    res.json(booking);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};

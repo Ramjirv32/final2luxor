@@ -75,6 +75,14 @@ app.get('/', (req, res) => {
   res.status(200).json({ message: 'Welcome to Luxor API' });
 });
 
+// Handle favicon requests
+app.get('/favicon.ico', (req, res) => res.status(204).end());
+
+// Add a test route for debugging
+app.get('/api/test', (req, res) => {
+  res.json({ message: 'API is working', timestamp: new Date().toISOString() });
+});
+
 // Error handler middleware
 app.use((err, req, res, next) => {
   console.error('Error:', err);
