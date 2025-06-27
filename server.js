@@ -2,9 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const path = require('path');
 
 dotenv.config();
 
+// Import routes without error handling to simplify
 const userRoutes = require('./routes/userRoutes');
 const villaRoutes = require('./routes/villaRoutes');
 const bookingRoutes = require('./routes/bookingRoutes');
@@ -12,23 +14,23 @@ const authRoutes = require('./routes/authRoutes');
 const photoGalleryRoutes = require('./routes/photoGalleryRoutes');
 const newsletterRoutes = require('./routes/newsletterRoutes');
 
-// Initialize Express app
+
 const app = express();
 
-// Configure CORS - more permissive for debugging
+// Configure CORS - more permissive to fix the CORS issues
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://luxor-stay.vercel.app', 'https://luxor-q-luxor-stay.vercel.app'],
+  origin: '*', // Allow all origins during development
   credentials: true,
-  exposedHeaders: ['Content-Range', 'X-Total-Count'],
-  preflightContinue: false,
-  optionsSuccessStatus: 204,
-  maxAge: 86400,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Origin', 'Accept']
 }));
 
-// Parse JSON request bodies
-app.use(express.json({ limit: '10mb' }));
+// Add preflight handling for all routes
+app.options('*', cors());
+
+// Parse JSON request bodies with increased limit for base64 images
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
 // MongoDB connection with error handling
 const connectDB = async () => {
@@ -46,7 +48,16 @@ const connectDB = async () => {
   }
 };
 
-// API Routes
+// Simple request logger
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.url}`);
+  next();
+});
+
+// Serve static assets
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
+
+// API Routes - simplified
 app.use('/api/users', userRoutes);
 app.use('/api/villas', villaRoutes);
 app.use('/api/bookings', bookingRoutes);
@@ -56,12 +67,7 @@ app.use('/api/newsletter', newsletterRoutes);
 
 // Health check route
 app.get('/health', (req, res) => {
-  res.status(200).json({ 
-    status: 'ok', 
-    message: 'Server is running',
-    environment: process.env.NODE_ENV || 'development',
-    timestamp: new Date().toISOString()
-  });
+  res.status(200).json({ status: 'ok' });
 });
 
 // Main route 
@@ -71,11 +77,8 @@ app.get('/', (req, res) => {
 
 // Error handler middleware
 app.use((err, req, res, next) => {
-  console.error('Unhandled error:', err);
-  res.status(500).json({ 
-    error: 'Internal Server Error', 
-    message: process.env.NODE_ENV === 'production' ? 'An unexpected error occurred' : err.message
-  });
+  console.error('Error:', err);
+  res.status(500).json({ error: 'Internal Server Error' });
 });
 
 // Connect to MongoDB before starting the server
@@ -83,12 +86,13 @@ connectDB().then((connected) => {
   if (connected) {
     const PORT = process.env.PORT || 5000;
     
-    // For local development
-    if (process.env.NODE_ENV !== 'production') {
-      app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-    }
+    app.listen(PORT, '0.0.0.0', () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  } else {
+    console.error("Failed to connect to MongoDB. Server not started.");
+    process.exit(1);
   }
 });
 
-// Export for serverless environment
 module.exports = app;
